@@ -53,4 +53,27 @@ public class USACO{
   }
   return field;
 }
+
+public static int silver(String filename) throws FileNotFoundException {
+  int N , M , T;
+  int ans = 0;
+  File text = new File(filename);
+  Scanner s = new Scanner(text);
+  N = s.nextInt();
+  M = s.nextInt();
+  T = s.nextInt();
+  int[][] field = new int[N][M];
+  String R = "";
+  for(int i = 0; i < N;i++){
+    R = s.next();
+    for(int j = 0; j < M;j++){
+      if(R.charAt(j) == '*'){
+        field[i][j] = -1;
+      }
+      if(R.charAt(j) == '.'){
+        field[i][j] = 0;
+      }
+    }
+  }
+}
 }
