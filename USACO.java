@@ -3,6 +3,7 @@ import java.io.*;
 public class USACO{
   public static int bronze(String filename)throws FileNotFoundException{
     int R , C , E , N ;
+    int ans = 0;
     File text = new File(filename);
     Scanner s = new Scanner(text);
     R = s.nextInt();
@@ -24,6 +25,15 @@ public class USACO{
     for(int i = 0; i< N;i++){
       bronzeH(field,digging[i][0] - 1,digging[i][1] - 1,digging[i][2]);
     }
+
+    for(int i = 0; i < R;i++){
+      for(int j = 0; j < C;j++){
+        if(field[i][j] < E){
+          ans = ans + (E - field[i][j]);
+        }
+      }
+    }
+    return ans;
   }
   public static int[][] bronzeH(int[][] field, int row, int col, int level) {
   int biggest = 0;
