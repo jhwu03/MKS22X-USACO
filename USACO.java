@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 public class USACO{
-  public static int bronze(String filename)throws FileNotFoundException{
+  public static int bronze(String filename) throws FileNotFoundException{
     int R , C , E , N ;
     int ans = 0;
     File text = new File(filename);
@@ -84,6 +84,32 @@ public static int silver(String filename) throws FileNotFoundException {
   field = silverH(field);
   }
   return field[endX - 1][endY - 1];
+}
+
+public static int[][] silverH(int[][] field) {
+  int[][] ans = new int[field.length][field[0].length];
+  for (int i = 0; i < field.length; i ++) {
+    for (int j = 0; j < field[0].length; j++) {
+      if (field[i][j] != -1) {
+      if ( j + 1 < field[0].length && field[i][j + 1] != -1){
+        ans[i][j] += field[i][j + 1];
+      }
+      if (j - 1 >= 0 && field[i][j - 1] != -1){
+        ans[i][j] += field[i][j - 1];
+      }
+      if (i - 1 >= 0 && field[i - 1][j] != -1){
+        ans[i][j] += field[i - 1][j];
+      }
+      if (i + 1 < field.length && field[i + 1][j] != -1){
+        ans[i][j] += field[i + 1][j];
+      }
+    }
+    else {
+      ans[i][j] = -1;
+    }
+    }
+  }
+  return ans;
 }
 
 
