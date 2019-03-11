@@ -33,7 +33,7 @@ public class USACO{
         }
       }
     }
-    return ans;
+    return 72 * 72 * ans;
   }
   public static int[][] bronzeH(int[][] field, int row, int col, int level) {
   int biggest = 0;
@@ -75,5 +75,16 @@ public static int silver(String filename) throws FileNotFoundException {
       }
     }
   }
+  int startX = s.nextInt();
+  int startY = s.nextInt();
+  int endX = s.nextInt();
+  int endY = s.nextInt();
+  field[startX - 1][startY - 1] = 1;
+  for(int k = 0; k < T; k++) {
+  field = silverH(field);
+  }
+  return field[endX - 1][endY - 1];
 }
+
+
 }
